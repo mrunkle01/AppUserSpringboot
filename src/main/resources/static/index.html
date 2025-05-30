@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>AppUserStorage</title>
+        <script src="appUserJS.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="nav">
+                <button onclick="getUsers()" id="get">Get Users</button>
+                <button onclick="deleteUser()" id="delete">Delete User</button>
+                <button onclick ="editUser()" id="edit">Edit User</button>
+            </div>
+            <div class="inputField">
+                <input type="text" id="nameInput" placeholder="Name" />
+                <input type="email" id="emailInput" placeholder="Email" />
+                <input type="number" id="ageInput" placeholder="Age" />
+                <button onclick="addUser()">Add User</button>
+
+            </div>
+            <div id="output">Results here</div>
+        </div>
+    </body>
+
+</html>
+

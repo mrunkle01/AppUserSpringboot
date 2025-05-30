@@ -47,12 +47,14 @@ public class AppUserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<Collection<AppUser>> getUsers(@RequestParam String pass){
+    public Collection<AppUser> getUsers(){
         //test purpose only
-        if(pass.equals("secret"))
-            return ResponseEntity.ok(appUserService.getUsers());
-        else
-            return ResponseEntity.status(403).body(null);
+        return appUserService.getUsers();
+
+    }
+    @GetMapping("/ping")
+    public String ping() {
+        return "pong from Spring Boot!";
     }
 
 }
