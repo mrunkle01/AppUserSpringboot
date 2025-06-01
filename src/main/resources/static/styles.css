@@ -1,0 +1,14 @@
+.user {
+    background-color: lightblue;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 20px;
+
+}
+#output{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+/*3.0*/

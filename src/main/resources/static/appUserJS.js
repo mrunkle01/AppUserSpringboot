@@ -11,6 +11,7 @@ async function getUsers() {
         sOut += `<div class="name">Name: ${user.name}</div>`;
         sOut += `<div class="email">Email: ${user.email}</div>`;
         sOut += `<div class="id">ID: ${user.id}</div>`;
+        sOut += `<div class="age">ID: ${user.age}</div>`;
         sOut += `</div>`;
     });
 
@@ -36,6 +37,7 @@ async function addUser() {
 
         if (res.ok) {
             alert("User added successfully!");
+            await getUsers();
         } else {
             const errorText = await res.text();
             alert("Failed to add user: " + errorText);
@@ -44,7 +46,30 @@ async function addUser() {
         console.error("Error adding user:", error);
     }
 }
+async function deleteUser(){
+    let email = document.getElementById("emailInput").value;
 
+    try {
+        const res = await fetch(`user/delete/${email}`,
+            {
+                method : "DELETE"
+            });
+        if (res.ok){
+            alert("User Deleted Successfully")
+            await getUsers();
+        }
+        else{
+            const errorText = await res.text();
+            alert("Failed to delete user: "+ errorText)
+        }
+    } catch (error){
+        console.error("Error deleting user with email: ", error)
+    }
+}
+function clear(){
+    document.getElementById("output").innerHTML = " ";
+
+}
 
 
 
