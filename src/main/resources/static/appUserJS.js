@@ -20,6 +20,7 @@ async function getUsers() {
 
 
 async function addUser() {
+    clearOut()
     const user = {
         name: document.getElementById("nameInput").value,
         email: document.getElementById("emailInput").value,
@@ -47,6 +48,7 @@ async function addUser() {
     }
 }
 async function deleteUser(){
+    clearOut()
     let email = document.getElementById("emailInput").value;
 
     try {
@@ -66,9 +68,34 @@ async function deleteUser(){
         console.error("Error deleting user with email: ", error)
     }
 }
-function clear(){
+function clearOut(){
     document.getElementById("output").innerHTML = " ";
 
+}
+async function updateUser() {
+    clearOut()
+    const user = {
+        name: document.getElementById("nameInput").value,
+        email: document.getElementById("emailInput").value,
+        age: parseInt(document.getElementById("ageInput").value)
+    };
+    try {
+        const res = fetch(`/user/update/${user.email}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+        if (res.ok) {
+            alert("User Updated")
+        } else {
+            const errorText = await res.text();
+            alert("Failed to delete user: " + errorText)
+        }
+    } catch (error){
+        console.error("Error updating user: ", error)
+    }
 }
 
 

@@ -11,8 +11,9 @@
             <div class="nav">
                 <button onclick="getUsers()" id="get">Get Users</button>
                 <button onclick="deleteUser()" id="delete">Delete User</button>
-                <button onclick ="editUser()" id="edit">Edit User</button>
-                <button onclick="clear()" id="clear">Clear</button>
+                <button onclick ="updateUser()" id="edit">Edit User</button>
+                <button onclick="clearOut()" id="clear">Clear Output</button>
+
             </div>
             <div class="inputField">
                 <input type="text" id="nameInput" placeholder="Name" />
@@ -21,7 +22,7 @@
                 <button onclick="addUser()">Add User</button>
 
             </div>
-            <div id="output">Results here</div>
+            <div id="output"></div>
         </div>
     </body>
 
